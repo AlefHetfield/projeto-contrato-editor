@@ -15,7 +15,7 @@ class Pessoa:
 
     def __str__(self):
         print(self.tipo.upper())
-        return f'{self.nome} | {self.cpf} | {self.rg} | {self.endereco}'
+        return f'{self.nome} | {self.cpf} | {self.rg} | {self.endereco}\n'
     
     def editar_dado(self):
         while True:
@@ -40,10 +40,10 @@ class Pessoa:
                 print('Opção inválida. Digite novamente.')
 
 
-vendedor = Pessoa("Vendedor")
-vendedor.coletar_dados()
-print(vendedor)
+# vendedor = Pessoa("Vendedor")
+# vendedor.coletar_dados()
+# print(vendedor)
 
-vendedor.editar_dado()
+# vendedor.editar_dado()
 
-print(vendedor)
+# print(vendedor)
