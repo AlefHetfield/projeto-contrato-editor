@@ -1,0 +1,2 @@
+compradores = {}
+vendedores = {}
