@@ -25,16 +25,16 @@ class Pessoa:
             print('[3] RG')
             print('[4] Endereço')
             print('[5] Voltar')
-            opcao = int(input('\n Escolha a opção que deseja alterar: '))
-            if opcao == 1:
+            opcao = input('\nEscolha a opção que deseja alterar: ')
+            if opcao == '1':
                 self.nome = input('Digite o novo Nome: ')
-            elif opcao == 2:
+            elif opcao == '2':
                 self.cpf = input('Digite o novo CPF: ')
-            elif opcao == 3:
+            elif opcao == '3':
                 self.rg = input('Digite o novo RG: ')
-            elif opcao == 4:
+            elif opcao == '4':
                 self.endereco = input('Digite o novo Endereço: ')
-            elif opcao == 5:
+            elif opcao == '5':
                 break
             else:
                 print('Opção inválida. Digite novamente.')
