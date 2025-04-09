@@ -8,7 +8,7 @@ vendedores = {}
 
 doc = Document("contrato_teste.docx")
 
-def main():
+def main(): # Função principal que inicia o programa
     os.system('cls')
     exibir_nome_programa()
     while True:
@@ -16,7 +16,7 @@ def main():
         escolher_opcao_menu_principal()
 
 
-def exibir_nome_programa():
+def exibir_nome_programa(): # Exibe o nome do programa na tela
     print('''
 
     █▀▀ █▀▀█ █▀▀▄ ▀▀█▀▀ █▀▀█ █▀▀█ ▀▀█▀▀ █▀▀█ █▀▀ 　 █▀▄▀█ █▀▀█ ▀▀█▀▀ ░▀░ ▀█░█▀ █▀▀ 
@@ -24,18 +24,18 @@ def exibir_nome_programa():
     ▀▀▀ ▀▀▀▀ ▀░░▀ ░░▀░░ ▀░▀▀ ▀░░▀ ░░▀░░ ▀▀▀▀ ▀▀▀ 　 ▀░░░▀ ▀▀▀▀ ░░▀░░ ▀▀▀ ░░▀░░ ▀▀▀
     ''')
 
-def encerrar_programa():
+def encerrar_programa(): # Função para encerrar o programa
     os.system('cls')
     print('ENCERRANDO PROGRAMA...')
 
-def menu_principal():
+def menu_principal(): # Exibe o menu principal
     print('[1] Cadastrar Participantes')
     print('[2] Exibir Dados do Contrato')
     print('[3] Salvar Arquivo')
     print('[4] Converter para PDF')
     print('[5] Sair\n')
 
-def escolher_opcao_menu_principal():
+def escolher_opcao_menu_principal(): # Função para escolher a opção do menu principal
     while True:
         os.system('cls')
         exibir_nome_programa()
@@ -80,13 +80,13 @@ def escolher_opcao_menu_principal():
         else:
             opcao_invalida()
 
-def menu_cadastrar_participantes():
+def menu_cadastrar_participantes(): # Exibe o menu de cadastro de participantes
     print('CADASTRO DE PARTICIPANTES\n')
     print('[1] Cadastrar Vendedores')
     print('[2] Cadastrar Compradores')
     print('[3] Voltar ao Menu Principal\n')
 
-def coletar_dados_vendedores():
+def coletar_dados_vendedores(): # Coleta os dados dos vendedores
     global vendedores
     vendedores = {
         'nome': input('Digite o nome completo do Vendedor: '),
@@ -96,7 +96,7 @@ def coletar_dados_vendedores():
     }
     return vendedores
 
-def coletar_dados_compradores():
+def coletar_dados_compradores(): # Coleta os dados dos compradores
     global compradores
     compradores = {
         'nome': input('Digite o nome completo do Comprador: '),
@@ -106,7 +106,7 @@ def coletar_dados_compradores():
     }
     return compradores
 
-def exibir_dados_contrato():
+def exibir_dados_contrato(): # Exibe os dados do contrato coletados até o momento
     os.system('cls')
     exibir_nome_programa()
     print('VENDEDORES')
@@ -122,15 +122,14 @@ def exibir_dados_contrato():
         print('Nenhum vendedor cadastrado.')
     input('\nDigite uma tecla para voltar: ')
 
-def salvar_arquivo():
+def salvar_arquivo(): # Salva o arquivo com os dados coletados 
     nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
     doc.save(f'{nome_arquivo}.docx')
 
-def converter_em_PDF(texto):
+def converter_em_PDF(texto): # Converte o arquivo .docx para .pdf
     convert(f'{texto}.docx', f'{texto}.pdf')
 
-def voltar_ao_menu():
-    # Essa função volta ao menu principal
+def voltar_ao_menu(): # Volta ao menu principal
     input('\nDigite uma tecla para voltar ao menu ')
     menu_principal()
 
