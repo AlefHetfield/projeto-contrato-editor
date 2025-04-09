@@ -2,6 +2,7 @@ from docx import Document
 from docx2pdf import convert
 from num2words import num2words as extenso
 import os
+from classe_pessoa import Pessoa
 
 compradores = {}
 vendedores = {}
@@ -54,13 +55,13 @@ def escolher_opcao_menu_principal(): # Função para escolher a opção do menu 
                     exibir_nome_programa()
                     coletar_dados_vendedores()
                     print('\nVENDEDOR CADASTRADO COM SUCESSO!\n')
-                    input('Digite qualquer tecla para voltar: ')
+                    input('Digite [ENTER] para voltar: ')
                 elif opcao_cadastro == 2:
                     os.system('cls')
                     exibir_nome_programa()
                     coletar_dados_compradores()
                     print('\nCOMPRADOR CADASTRADO COM SUCESSO!\n')
-                    input('Digite qualquer tecla para voltar: ')
+                    input('Digite [ENTER] para voltar: ')
                 elif opcao_cadastro == 3:
                     break             
                 else:
