@@ -46,4 +46,4 @@ class Pessoa:
 
 # vendedor.editar_dado()
 
-print(vendedor)
+# print(vendedor)
