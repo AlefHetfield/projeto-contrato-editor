@@ -6,9 +6,6 @@ from classe_pessoa import Pessoa
 
 doc = Document("contrato_teste.docx")
 
-# Testando se vai chegar as mudanças pro Adriano
-# Chegou mesmo!
-
 def main(): # Função principal que inicia o programa
     comprador = ''
     vendedor = ''
