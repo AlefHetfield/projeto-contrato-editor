@@ -40,10 +40,10 @@ class Pessoa:
                 print('Opção inválida. Digite novamente.')
 
 
-# vendedor = Pessoa("Vendedor")
-# vendedor.coletar_dados()
-# print(vendedor)
+vendedor = Pessoa("Vendedor")
+vendedor.coletar_dados()
+print(vendedor)
 
-# vendedor.editar_dado()
+vendedor.editar_dado()
 
-# print(vendedor)
+print(vendedor)
