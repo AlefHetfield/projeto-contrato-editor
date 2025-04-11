@@ -6,7 +6,7 @@ import os
 from classe_pessoa import Pessoa
 from classe_pessoa import Imovel
 =======
-from pessoa import Pessoa
+from classe_pessoa import Pessoa
 >>>>>>> 0c8bc243e77a5585518127109a9917a92467897d:main.py
 
 # doc = Document("contrato_teste.docx")
