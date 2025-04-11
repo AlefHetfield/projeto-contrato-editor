@@ -17,7 +17,7 @@ class Pessoa:
         print(self.tipo.upper())
         return f'{self.nome} | {self.cpf} | {self.rg} | {self.endereco}\n'
     
-    def editar_dado(self):
+    def editar_dados(self):
         while True:
             print(f'\nEditar dados do {self.tipo}')
             print('[1] Nome')
