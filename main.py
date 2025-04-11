@@ -3,7 +3,7 @@ from docx2pdf import convert
 from num2words import num2words as extenso
 import os
 from classe_pessoa import Pessoa
-from classe_pessoa import Imovel
+from classe_imovel import Imovel
 
 # doc = Document("contrato_teste.docx")
 
@@ -60,6 +60,8 @@ def main(): # Função principal que inicia o programa
             print(comprador)
             print('-' * 30)
             print(vendedor)
+            print('-' * 30)
+            print(imovel)
             input('Digite [ENTER] para voltar: ')
 
         if opcao_escolhida == '3':
