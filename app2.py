@@ -2,12 +2,8 @@ from docx import Document
 from docx2pdf import convert
 from num2words import num2words as extenso
 import os
-<<<<<<< HEAD:app2.py
 from classe_pessoa import Pessoa
 from classe_pessoa import Imovel
-=======
-from classe_pessoa import Pessoa
->>>>>>> 0c8bc243e77a5585518127109a9917a92467897d:main.py
 
 # doc = Document("contrato_teste.docx")
 
