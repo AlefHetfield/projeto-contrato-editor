@@ -2,7 +2,7 @@ from docx import Document
 from docx2pdf import convert
 from num2words import num2words as extenso
 import os
-from classe_pessoa import Pessoa
+from pessoa import Pessoa
 
 doc = Document("contrato_teste.docx")
 
@@ -26,7 +26,8 @@ def main(): # Função principal que inicia o programa
                 print('CADASTRO DE PARTICIPANTES\n')
                 print('[1] Cadastrar Vendedores')
                 print('[2] Cadastrar Compradores')
-                print('[3] Voltar ao Menu Principal\n')
+                print('[3] Editar Dados Cadastrados')
+                print('[4] Voltar ao Menu Principal\n')
                 opcao_cadastro = input('Quem gostaria de cadastrar: ')
                 
                 if opcao_cadastro == '1':
@@ -42,8 +43,12 @@ def main(): # Função principal que inicia o programa
                     comprador.coletar_dados()
                     print('\nCOMPRADOR CADASTRADO COM SUCESSO!\n')
                     input('Digite [ENTER] para voltar: ')
+                
+                # elif opcao_cadastro == '3':
+                #     tela_limpa()
+                #     Pessoa.editar_dados()
 
-                elif opcao_cadastro == '3':
+                elif opcao_cadastro == '4':
                     break    
             continue
 
