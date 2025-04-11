@@ -3,12 +3,14 @@ from docx2pdf import convert
 from num2words import num2words as extenso
 import os
 from classe_pessoa import Pessoa
+from classe_pessoa import Imovel
 
-doc = Document("contrato_teste.docx")
+# doc = Document("contrato_teste.docx")
 
 def main(): # Função principal que inicia o programa
     comprador = ''
     vendedor = ''
+    imovel = ''
     tela_limpa()
     while True:
         tela_limpa()
@@ -16,7 +18,8 @@ def main(): # Função principal que inicia o programa
         print('[2] Exibir Dados do Contrato')
         print('[3] Salvar Arquivo')
         print('[4] Converter para PDF')
-        print('[5] Sair\n')
+        print('[5] Cadastrar imóvel')
+        print('[6] Sair\n')
         
         opcao_escolhida = input('Digite a opção desejada: ')
         
@@ -58,9 +61,16 @@ def main(): # Função principal que inicia o programa
             nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
             doc.save(f'{nome_arquivo}.docx')
 
-
-
         if opcao_escolhida == '5':
+            tela_limpa()
+            imovel = Imovel("Imóvel")
+            imovel.coletar_dados()
+            print('\nIMÓVEL CADASTRADO COM SUCESSO!\n')
+            input('Digite [ENTER] para voltar: ')
+
+
+
+        if opcao_escolhida == '6':
             os.system('cls')
             print('TCHAU. ATÉ A PRÓXIMA!')
             print('\n© Motive Consultoria Imobiliária LTDA.\n')
