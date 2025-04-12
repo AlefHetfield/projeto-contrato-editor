@@ -14,23 +14,23 @@ def main(): # Função principal que inicia o programa
     tela_limpa()
     while True:
         tela_limpa()
-        print('[1] Cadastrar Participantes')
+        print('[1] Cadastrar Informações')
         print('[2] Exibir Dados do Contrato')
         print('[3] Salvar Arquivo')
         print('[4] Converter para PDF')
-        print('[5] Cadastrar imóvel')
-        print('[6] Sair\n')
+        print('[5] Sair\n')
         
         opcao_escolhida = input('Digite a opção desejada: ')
         
         if opcao_escolhida == '1':
             while True:
                 tela_limpa()
-                print('CADASTRO DE PARTICIPANTES\n')
+                print('CADASTRO DE INFORMAÇÕES\n')
                 print('[1] Cadastrar Vendedores')
                 print('[2] Cadastrar Compradores')
-                print('[3] Editar Dados Cadastrados')
-                print('[4] Voltar ao Menu Principal\n')
+                print('[3] Cadastrar Imóvel')
+                print('[4] Editar Dados Cadastrados')
+                print('[5] Voltar ao Menu Principal\n')
                 opcao_cadastro = input('Quem gostaria de cadastrar: ')
                 
                 if opcao_cadastro == '1':
@@ -46,12 +46,19 @@ def main(): # Função principal que inicia o programa
                     comprador.coletar_dados()
                     print('\nCOMPRADOR CADASTRADO COM SUCESSO!\n')
                     input('Digite [ENTER] para voltar: ')
+
+                elif opcao_cadastro == '3':
+                    tela_limpa()
+                    imovel = Imovel("Imóvel")
+                    imovel.coletar_dados()
+                    print('\nIMÓVEL CADASTRADO COM SUCESSO!\n')
+                    input('Digite [ENTER] para voltar: ')
                 
-                # elif opcao_cadastro == '3':
+                # elif opcao_cadastro == '4':
                 #     tela_limpa()
                 #     Pessoa.editar_dados()
 
-                elif opcao_cadastro == '4':
+                elif opcao_cadastro == '5':
                     break    
             continue
 
@@ -68,16 +75,8 @@ def main(): # Função principal que inicia o programa
             nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
             # doc.save(f'{nome_arquivo}.docx')
 
+        
         if opcao_escolhida == '5':
-            tela_limpa()
-            imovel = Imovel("Imóvel")
-            imovel.coletar_dados()
-            print('\nIMÓVEL CADASTRADO COM SUCESSO!\n')
-            input('Digite [ENTER] para voltar: ')
-
-
-
-        if opcao_escolhida == '6':
             os.system('cls')
             print('TCHAU. ATÉ A PRÓXIMA!')
             print('\n© Motive Consultoria Imobiliária LTDA.\n')
