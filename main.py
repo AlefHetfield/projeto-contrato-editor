@@ -66,7 +66,7 @@ def main(): # Função principal que inicia o programa
 
         if opcao_escolhida == '3':
             nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
-            doc.save(f'{nome_arquivo}.docx')
+            # doc.save(f'{nome_arquivo}.docx')
 
         if opcao_escolhida == '5':
             tela_limpa()
