@@ -54,19 +54,55 @@ def main(): # Função principal que inicia o programa
                     print('\nIMÓVEL CADASTRADO COM SUCESSO!\n')
                     input('Digite [ENTER] para voltar: ')
                 
-                # elif opcao_cadastro == '4':
-                #     tela_limpa()
-                #     Pessoa.editar_dados()
+                elif opcao_cadastro == '4':
+                    tela_limpa()
+                    print('EDITAR DADOS CADASTRADOS\n')
+                    print('[1] Editar Vendedor')
+                    print('[2] Editar Comprador')
+                    print('[3] Editar Imóvel')
+                    print('[4] Voltar\n')
+                    opcao_editar = input('Escolha uma opção: ')
 
+                    if opcao_editar == '1':
+                        if not vendedor:
+                            print('\nNenhum vendedor cadastrado.\n')
+                            input('Digite [ENTER] para voltar.')
+                            break
+                        else:
+                            tela_limpa()
+                            print(vendedor)
+                            print('-' * 30)
+                            vendedor.editar_dados()
+
+                    elif opcao_editar == '2':
+                        if not comprador:
+                            print('\nNenhum comprador cadastrado.\n')
+                            input('Digite [ENTER] para voltar.')
+                            break
+                        else:
+                            tela_limpa()
+                            print(comprador)
+                            print('-' * 30)
+                            comprador.editar_dados()
+
+                    elif opcao_editar == '3':
+                        imovel.editar_dados()
+
+                    elif opcao_editar == '4':
+                        break
+
+                    else:
+                        print('Opção inválida.')
+                    
                 elif opcao_cadastro == '5':
                     break    
             continue
 
         if opcao_escolhida == '2':
             tela_limpa()
-            print(comprador)
-            print('-' * 30)
             print(vendedor)
+            print('-' * 30)
+            print(comprador)
             print('-' * 30)
             print(imovel)
             input('Digite [ENTER] para voltar: ')

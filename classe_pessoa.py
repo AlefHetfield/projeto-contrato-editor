@@ -32,21 +32,23 @@ class Pessoa:
             opcao = input('\nEscolha a opção que deseja alterar: ')
             if opcao == '1':
                 self.nome = input('Digite o novo Nome: ')
+                print(f'Nome alterado para: {self.nome}')
+                input('Digite [ENTER] para voltar.')
             elif opcao == '2':
                 self.cpf = input('Digite o novo CPF: ')
+                print(f'CPF alterado para: {self.cpf}')
+                input('Digite [ENTER] para voltar.')
             elif opcao == '3':
                 self.rg = input('Digite o novo RG: ')
+                print(f'RG alterado para: {self.rg}')
+                input('Digite [ENTER] para voltar.')
             elif opcao == '4':
                 self.endereco = input('Digite o novo Endereço: ')
+                print(f'Endereço alterado para: {self.endereco}')
+                input('Digite [ENTER] para voltar.')
             elif opcao == '5':
                 break
             else:
                 print('Opção inválida. Digite novamente.')
 
-# vendedor = Pessoa("Vendedor")
-# vendedor.coletar_dados()
-# print(vendedor)
 
-# vendedor.editar_dado()
-
-# print(vendedor)

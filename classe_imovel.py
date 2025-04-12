@@ -20,3 +20,6 @@ class Imovel:
         # return f'{self.tipo.upper()}\n{header}\n{data}\n'
         #Formatação para exibir dados verticalmente:
         return f'{self.tipo.upper()}\nCategoria: {self.categoria}\nNúmero da Matrícula: {self.numero_da_matricula}\nCartório: {self.cartorio}\nEndereço: {self.endereco_do_imovel}\n'
+    
+
+    
