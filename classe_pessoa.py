@@ -14,8 +14,9 @@ class Pessoa:
         self.endereco = input(f'Digite o Endereço Completo do {self.tipo}: ')
 
     def __str__(self):
-        print(self.tipo.upper())
-        return f'{self.nome} | {self.cpf} | {self.rg} | {self.endereco}\n'
+        header = f'{'Nome':<40} | {'CPF':<15} | {'RG':<15} | {'Endereço':<25}'
+        data = f'{self.nome:<40} | {self.cpf:<15} | {self.rg:<15} | {self.endereco:<25}'
+        return f'{self.tipo.upper()}\n{header}\n{data}\n'
     
     def editar_dados(self):
         while True:
