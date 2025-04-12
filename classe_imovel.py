@@ -14,6 +14,9 @@ class Imovel:
         self.endereco_do_imovel = input(f'Digite o endereço completo do {self.tipo}: ')
 
     def __str__(self):
-        header = f'{'Categoria':<40} | {'Matrícula':<15} | {'Cartório':<15} | {'Endereço':<25}'
-        data = f'{self.categoria:<40} | {self.numero_da_matricula:<15} | {self.cartorio:<15} | {self.endereco_do_imovel:<25}'
-        return f'{self.tipo.upper()}\n{header}\n{data}\n'
+        # Formação para exibir dados horizontalmente:
+        # header = f'{'Categoria':<40} | {'Matrícula':<15} | {'Cartório':<15} | {'Endereço':<25}'
+        # data = f'{self.categoria:<40} | {self.numero_da_matricula:<15} | {self.cartorio:<15} | {self.endereco_do_imovel:<25}'
+        # return f'{self.tipo.upper()}\n{header}\n{data}\n'
+        #Formatação para exibir dados verticalmente:
+        return f'{self.tipo.upper()}\nCategoria: {self.categoria}\nNúmero da Matrícula: {self.numero_da_matricula}\nCartório: {self.cartorio}\nEndereço: {self.endereco_do_imovel}\n'
