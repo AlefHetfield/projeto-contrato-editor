@@ -5,7 +5,7 @@ import os
 from classe_pessoa import Pessoa
 from classe_imovel import Imovel
 
-# doc = Document("contrato_teste.docx")
+doc = Document("contrato_motive.docx")
 
 def main(): # Função principal que inicia o programa
     comprador = ''
@@ -108,8 +108,14 @@ def main(): # Função principal que inicia o programa
             input('Digite [ENTER] para voltar: ')
 
         if opcao_escolhida == '3':
+            substituir_texto('NOME_VENDEDOR', vendedor.nome.upper())
+            substituir_texto('CPF_VENDEDOR', vendedor.cpf)
+            substituir_texto('RG_VENDEDOR', vendedor.rg)
+            substituir_texto('ENDERECO_VENDEDOR', vendedor.endereco)
+        
             nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
-            # doc.save(f'{nome_arquivo}.docx')
+            doc.save(f'{nome_arquivo}.docx')
+
 
         
         if opcao_escolhida == '5':
@@ -119,6 +125,20 @@ def main(): # Função principal que inicia o programa
             break
 
 
+
+
+def substituir_texto(marcador, novo_valor):
+    """
+    Substitui o texto de um marcador no documento preservando a formatação.
+    
+    marcador: Texto do marcador a ser substituído
+    novo_valor: Novo valor que substituirá o marcador
+    """
+    for paragrafo in doc.paragraphs:
+        if marcador in paragrafo.text:
+            for run in paragrafo.runs:
+                if marcador in run.text:
+                    run.text = run.text.replace(marcador, novo_valor)
 
 def exibir_nome_programa(): # Exibe o nome do programa na tela
     print('''
