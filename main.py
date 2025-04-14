@@ -98,7 +98,7 @@ def main(): # Função principal que inicia o programa
                     break    
             continue
 
-        if opcao_escolhida == '2':
+        elif opcao_escolhida == '2':
             tela_limpa()
             print(vendedor)
             print('-' * 30)
@@ -107,7 +107,7 @@ def main(): # Função principal que inicia o programa
             print(imovel)
             input('Digite [ENTER] para voltar: ')
 
-        if opcao_escolhida == '3':
+        elif opcao_escolhida == '3':
             substituir_texto('NOME_VENDEDOR', vendedor.nome.upper())
             substituir_texto('CPF_VENDEDOR', vendedor.cpf)
             substituir_texto('RG_VENDEDOR', vendedor.rg)
@@ -116,9 +116,10 @@ def main(): # Função principal que inicia o programa
             nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
             doc.save(f'{nome_arquivo}.docx')
 
-
+        elif opcao_escolhida == '4':
+            convert(f'{nome_arquivo}.docx', f'{nome_arquivo}.pdf')
         
-        if opcao_escolhida == '5':
+        elif opcao_escolhida == '5':
             os.system('cls')
             print('TCHAU. ATÉ A PRÓXIMA!')
             print('\n© Motive Consultoria Imobiliária LTDA.\n')
