@@ -29,8 +29,9 @@ def main(): # Função principal que inicia o programa
                 print('[1] Cadastrar Vendedores')
                 print('[2] Cadastrar Compradores')
                 print('[3] Cadastrar Imóvel')
-                print('[4] Editar Dados Cadastrados')
-                print('[5] Voltar ao Menu Principal\n')
+                print('[4] Cadastrar Valores da Negociação')
+                print('[5] Editar Dados Cadastrados')
+                print('[6] Voltar ao Menu Principal\n')
                 opcao_cadastro = input('Quem gostaria de cadastrar: ')
                 
                 if opcao_cadastro == '1':
@@ -54,7 +55,7 @@ def main(): # Função principal que inicia o programa
                     print('\nIMÓVEL CADASTRADO COM SUCESSO!\n')
                     input('Digite [ENTER] para voltar: ')
                 
-                elif opcao_cadastro == '4':
+                elif opcao_cadastro == '5':
                     tela_limpa()
                     print('EDITAR DADOS CADASTRADOS\n')
                     print('[1] Editar Vendedor')
@@ -86,7 +87,15 @@ def main(): # Função principal que inicia o programa
                             comprador.editar_dados()
 
                     elif opcao_editar == '3':
-                        imovel.editar_dados()
+                        if not imovel:
+                            print('\nNenhum imóvel cadastrado.\n')
+                            input('Digite [ENTER] para voltar.')
+                            break
+                        else:
+                            tela_limpa()
+                            print(imovel)
+                            print('-' * 30)
+                            imovel.editar_dados()
 
                     elif opcao_editar == '4':
                         break
@@ -94,7 +103,7 @@ def main(): # Função principal que inicia o programa
                     else:
                         print('Opção inválida.')
                     
-                elif opcao_cadastro == '5':
+                elif opcao_cadastro == '6':
                     break    
             continue
 

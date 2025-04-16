@@ -14,11 +14,6 @@ class Pessoa:
         self.endereco = input(f'Digite o Endereço Completo do {self.tipo}: ')
 
     def __str__(self):
-        # Formação para exibir dados horizontalmente:
-        # header = f'{'Nome':<40} | {'CPF':<15} | {'RG':<15} | {'Endereço':<25}'
-        # data = f'{self.nome:<40} | {self.cpf:<15} | {self.rg:<15} | {self.endereco:<25}'
-        # return f'{self.tipo.upper()}\n{header}\n{data}\n'
-        #Formatação para exibir dados verticalmente
         return f'{self.tipo.upper()}\nNome: {self.nome}\nCPF: {self.cpf}\nRG: {self.rg}\nEndereço: {self.endereco}\n'
     
     def editar_dados(self):

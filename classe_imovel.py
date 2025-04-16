@@ -14,12 +14,35 @@ class Imovel:
         self.endereco_do_imovel = input(f'Digite o endereço completo do {self.tipo}: ')
 
     def __str__(self):
-        # Formação para exibir dados horizontalmente:
-        # header = f'{'Categoria':<40} | {'Matrícula':<15} | {'Cartório':<15} | {'Endereço':<25}'
-        # data = f'{self.categoria:<40} | {self.numero_da_matricula:<15} | {self.cartorio:<15} | {self.endereco_do_imovel:<25}'
-        # return f'{self.tipo.upper()}\n{header}\n{data}\n'
-        #Formatação para exibir dados verticalmente:
         return f'{self.tipo.upper()}\nCategoria: {self.categoria}\nNúmero da Matrícula: {self.numero_da_matricula}\nCartório: {self.cartorio}\nEndereço: {self.endereco_do_imovel}\n'
     
-
+    def editar_dados(self):
+        while True:
+            print(f'\nEditar dados do {self.tipo}')
+            print('[1] Categoria')
+            print('[2] Matricula')
+            print('[3] Cartório')
+            print('[4] Endereço')
+            print('[5] Voltar')
+            opcao = input('\nEscolha a opção que deseja alterar: ')
+            if opcao == '1':
+                self.categoria = input('Digite o nova Categoria: ')
+                print(f'Categoria alterado para: {self.categoria}')
+                input('Digite [ENTER] para voltar.')
+            elif opcao == '2':
+                self.numero_da_matricula = input('Digite a nova Matricula: ')
+                print(f'Matricula alterada para: {self.numero_da_matricula}')
+                input('Digite [ENTER] para voltar.')
+            elif opcao == '3':
+                self.cartorio = input('Digite o novo Cartório: ')
+                print(f'RG alterado para: {self.cartorio}')
+                input('Digite [ENTER] para voltar.')
+            elif opcao == '4':
+                self.endereco_do_imovel = input('Digite o novo Endereço: ')
+                print(f'Endereço alterado para: {self.endereco_do_imovel}')
+                input('Digite [ENTER] para voltar.')
+            elif opcao == '5':
+                break
+            else:
+                print('Opção inválida. Digite novamente.')
     
