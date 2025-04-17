@@ -7,7 +7,7 @@ class Imovel:
         self.endereco_do_imovel = '' 
 
     def coletar_dados(self):
-        print(f'Cadastro do {self.tipo}')
+        print(f'CADASTRO DO {self.tipo}\n')
         self.categoria = input(f'Digite se o {self.tipo} em questão é uma casa ou apartamento: ')
         self.numero_da_matricula = input(f'Digite o número da matrícula do {self.tipo}: ')
         self.cartorio = input(f'Digite o cartório responsável pelo {self.tipo}: ')
@@ -29,18 +29,22 @@ class Imovel:
                 self.categoria = input('Digite o nova Categoria: ')
                 print(f'Categoria alterado para: {self.categoria}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '2':
                 self.numero_da_matricula = input('Digite a nova Matricula: ')
                 print(f'Matricula alterada para: {self.numero_da_matricula}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '3':
                 self.cartorio = input('Digite o novo Cartório: ')
                 print(f'RG alterado para: {self.cartorio}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '4':
                 self.endereco_do_imovel = input('Digite o novo Endereço: ')
                 print(f'Endereço alterado para: {self.endereco_do_imovel}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '5':
                 break
             else:

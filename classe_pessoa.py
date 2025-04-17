@@ -7,7 +7,7 @@ class Pessoa:
         self.endereco = ''
 
     def coletar_dados(self):
-        print(f'Cadastro do {self.tipo}')
+        print(f'CADASTRO DO {self.tipo}\n')
         self.nome = input(f'Digite o nome do {self.tipo}: ')
         self.cpf = input(f'Digite o CPF do {self.tipo}: ')
         self.rg = input(f'Digite o RG do {self.tipo}: ')
@@ -29,18 +29,22 @@ class Pessoa:
                 self.nome = input('Digite o novo Nome: ')
                 print(f'Nome alterado para: {self.nome}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '2':
                 self.cpf = input('Digite o novo CPF: ')
                 print(f'CPF alterado para: {self.cpf}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '3':
                 self.rg = input('Digite o novo RG: ')
                 print(f'RG alterado para: {self.rg}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '4':
                 self.endereco = input('Digite o novo Endereço: ')
                 print(f'Endereço alterado para: {self.endereco}')
                 input('Digite [ENTER] para voltar.')
+                break
             elif opcao == '5':
                 break
             else:

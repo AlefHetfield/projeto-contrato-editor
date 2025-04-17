@@ -4,6 +4,7 @@ from num2words import num2words as extenso
 import os
 from classe_pessoa import Pessoa
 from classe_imovel import Imovel
+from classe_valores import Valores
 
 doc = Document("contrato_motive.docx")
 
@@ -11,9 +12,11 @@ def main(): # Função principal que inicia o programa
     comprador = ''
     vendedor = ''
     imovel = ''
+    valores = ''
     tela_limpa()
     while True:
         tela_limpa()
+        print('MENU PRINCIPAL\n')
         print('[1] Cadastrar Informações')
         print('[2] Exibir Dados do Contrato')
         print('[3] Salvar Arquivo')
@@ -54,6 +57,13 @@ def main(): # Função principal que inicia o programa
                     imovel.coletar_dados()
                     print('\nIMÓVEL CADASTRADO COM SUCESSO!\n')
                     input('Digite [ENTER] para voltar: ')
+
+                elif opcao_cadastro == '4':
+                    tela_limpa()
+                    valores = Valores("Valores")
+                    valores.coletar_dados()
+                    print('\nVALORES CADASTRADOS COM SUCESSO!\n')
+                    input('Digite [ENTER] para voltar: ')
                 
                 elif opcao_cadastro == '5':
                     tela_limpa()
@@ -61,7 +71,8 @@ def main(): # Função principal que inicia o programa
                     print('[1] Editar Vendedor')
                     print('[2] Editar Comprador')
                     print('[3] Editar Imóvel')
-                    print('[4] Voltar\n')
+                    print('[4] Editar Valores')
+                    print('[5] Voltar\n')
                     opcao_editar = input('Escolha uma opção: ')
 
                     if opcao_editar == '1':
@@ -98,6 +109,17 @@ def main(): # Função principal que inicia o programa
                             imovel.editar_dados()
 
                     elif opcao_editar == '4':
+                        if not valores:
+                            print('\nNenhum valor cadastrado.\n')
+                            input('Digite [ENTER] para voltar.')
+                            break
+                        else:
+                            tela_limpa()
+                            print(valores)
+                            print('-' * 30)
+                            valores.editar_dados()
+
+                    elif opcao_editar == '5':
                         break
 
                     else:
@@ -109,12 +131,16 @@ def main(): # Função principal que inicia o programa
 
         elif opcao_escolhida == '2':
             tela_limpa()
-            print(vendedor)
-            print('-' * 30)
-            print(comprador)
-            print('-' * 30)
-            print(imovel)
-            input('Digite [ENTER] para voltar: ')
+            print('-' * 30 + '\n')
+            print(vendedor, '\n')
+            print('-' * 30 + '\n')
+            print(comprador, '\n')
+            print('-' * 30 + '\n')
+            print(imovel, '\n')
+            print('-' * 30 + '\n')
+            print(valores, '\n')
+            print('-' * 30 + '\n')
+            input('\nDigite [ENTER] para voltar: ')
 
         elif opcao_escolhida == '3':
             substituir_texto('NOME_VENDEDOR', vendedor.nome.upper())
