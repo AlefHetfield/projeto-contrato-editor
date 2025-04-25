@@ -151,7 +151,7 @@ def main(): # Função principal que inicia o programa
             substituir_texto('CPF_COMPRADOR', comprador.cpf)
             substituir_texto('RG_COMPRADOR', comprador.rg)
             substituir_texto('ENDERECO_COMPRADOR', comprador.endereco)
-            substituir_texto('NUM_MATRICULA', imovel.numero_da_matricula)
+            substituir_texto('NUM_DA_MATRICULA', imovel.numero_da_matricula)
             substituir_texto('CATEGORIA_IMOVEL', imovel.categoria)
             substituir_texto('ENDERECO_IMOVEL', imovel.endereco_do_imovel)
             substituir_texto('CARTORIO', imovel.cartorio)
