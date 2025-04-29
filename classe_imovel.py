@@ -7,7 +7,7 @@ class Imovel:
         self.endereco_do_imovel = '' 
 
     def coletar_dados(self):
-        print(f'CADASTRO DO {self.tipo}\n')
+        print(f'CADASTRO DO {self.tipo}\n'.upper())
         self.categoria = input(f'Digite se o {self.tipo} em questão é uma casa ou apartamento: ')
         self.numero_da_matricula = input(f'Digite o número da matrícula do {self.tipo}: ')
         self.cartorio = input(f'Digite o cartório responsável pelo {self.tipo}: ')

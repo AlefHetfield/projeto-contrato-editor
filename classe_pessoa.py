@@ -7,7 +7,7 @@ class Pessoa:
         self.endereco = ''
 
     def coletar_dados(self):
-        print(f'CADASTRO DO {self.tipo}\n')
+        print(f'CADASTRO DO {self.tipo}\n'.upper())
         self.nome = input(f'Digite o nome do {self.tipo}: ')
         self.cpf = input(f'Digite o CPF do {self.tipo}: ')
         self.rg = input(f'Digite o RG do {self.tipo}: ')

@@ -42,14 +42,43 @@ def main(): # Função principal que inicia o programa
                     vendedor = Pessoa("Vendedor")
                     vendedor.coletar_dados()
                     print('\nVENDEDOR CADASTRADO COM SUCESSO!\n')
-                    input('Digite [ENTER] para voltar: ')
+                    
+                    while True:
+                        segundo_vendedor = input('Cadastrar mais um vendedor? [S/N]: ').strip().upper()
+                        if segundo_vendedor == 'S':
+                            tela_limpa()
+                            vendedor_2 = Pessoa("Vendedor 2")
+                            vendedor_2.coletar_dados()
+                            print('\nSEGUNDO VENDEDOR CADASTRADO COM SUCESSO!\n')
+                            input('Digite [ENTER] para voltar: ')
+                            break                        
+                        elif segundo_vendedor == 'N':
+                            print('Voltando ao menu de cadastro... ')
+                            break
+                        else:
+                            print('Digite uma opção válida!\n')
+
                 
                 elif opcao_cadastro == '2':
                     tela_limpa()
                     comprador = Pessoa("Comprador")
                     comprador.coletar_dados()
                     print('\nCOMPRADOR CADASTRADO COM SUCESSO!\n')
-                    input('Digite [ENTER] para voltar: ')
+                    
+                    while True:
+                        segundo_comprador = input('Cadastrar mais um comprador? [S/N]: ').strip().upper()
+                        if segundo_comprador == 'S':
+                            tela_limpa()
+                            comprador_2 = Pessoa("Comprador 2")
+                            comprador_2.coletar_dados()
+                            print('\nSEGUNDO COMPRADOR CADASTRADO COM SUCESSO!\n')
+                            input('Digite [ENTER] para voltar: ')
+                            break                        
+                        elif segundo_comprador == 'N':
+                            print('Voltando ao menu de cadastro... ')
+                            break
+                        else:
+                            print('Digite uma opção válida!\n')
 
                 elif opcao_cadastro == '3':
                     tela_limpa()
@@ -68,8 +97,8 @@ def main(): # Função principal que inicia o programa
                 elif opcao_cadastro == '5':
                     tela_limpa()
                     print('EDITAR DADOS CADASTRADOS\n')
-                    print('[1] Editar Vendedor')
-                    print('[2] Editar Comprador')
+                    print('[1] Editar Vendedores')
+                    print('[2] Editar Compradores')
                     print('[3] Editar Imóvel')
                     print('[4] Editar Valores')
                     print('[5] Voltar\n')
@@ -83,8 +112,21 @@ def main(): # Função principal que inicia o programa
                         else:
                             tela_limpa()
                             print(vendedor)
+                            print(vendedor_2)
                             print('-' * 30)
-                            vendedor.editar_dados()
+                            
+                        while True:
+                            editar_vendedores = input('\nQual vendedor você deseja editar? [1/2]: ').strip().upper()
+                            if editar_vendedores == '1':
+                                vendedor.editar_dados()
+                                break
+                                                      
+                            elif editar_vendedores == '2':
+                                vendedor_2.editar_dados()
+                                break
+
+                            else:
+                                print('Digite uma opção válida!\n')
 
                     elif opcao_editar == '2':
                         if not comprador:
@@ -94,8 +136,21 @@ def main(): # Função principal que inicia o programa
                         else:
                             tela_limpa()
                             print(comprador)
+                            print(comprador_2)
                             print('-' * 30)
-                            comprador.editar_dados()
+                            
+                        while True:
+                            editar_compradores = input('\nQual comprador você deseja editar? [1/2]: ').strip().upper()
+                            if editar_compradores == '1':
+                                comprador.editar_dados()
+                                break
+                                                      
+                            elif editar_compradores == '2':
+                                comprador_2.editar_dados()
+                                break
+
+                            else:
+                                print('Digite uma opção válida!\n')
 
                     elif opcao_editar == '3':
                         if not imovel:
@@ -133,8 +188,10 @@ def main(): # Função principal que inicia o programa
             tela_limpa()
             print('-' * 30 + '\n')
             print(vendedor, '\n')
+            print(vendedor_2, '\n')
             print('-' * 30 + '\n')
             print(comprador, '\n')
+            print(comprador_2, '\n')
             print('-' * 30 + '\n')
             print(imovel, '\n')
             print('-' * 30 + '\n')
@@ -143,13 +200,19 @@ def main(): # Função principal que inicia o programa
             input('\nDigite [ENTER] para voltar: ')
 
         elif opcao_escolhida == '3':
-            substituir_texto('NOME_VENDEDOR', vendedor.nome.upper())
-            substituir_texto('CPF_VENDEDOR', vendedor.cpf)
-            substituir_texto('RG_VENDEDOR', vendedor.rg)
+            substituir_texto('NOME_VENDEDOR_1', vendedor.nome.upper())
+            substituir_texto('CPF_VENDEDOR_1', vendedor.cpf)
+            substituir_texto('RG_VENDEDOR_1', vendedor.rg)
+            substituir_texto('NOME_VENDEDOR_2', vendedor_2.nome.upper())
+            substituir_texto('CPF_VENDEDOR_2', vendedor_2.cpf)
+            substituir_texto('RG_VENDEDOR_2', vendedor_2.rg)
             substituir_texto('ENDERECO_VENDEDOR', vendedor.endereco)
             substituir_texto('NOME_COMPRADOR', comprador.nome.upper())
             substituir_texto('CPF_COMPRADOR', comprador.cpf)
             substituir_texto('RG_COMPRADOR', comprador.rg)
+            substituir_texto('NOME_COMPRADOR_2', comprador_2.nome.upper())
+            substituir_texto('CPF_COMPRADOR_2', comprador_2.cpf)
+            substituir_texto('RG_COMPRADOR_2', comprador_2.rg)
             substituir_texto('ENDERECO_COMPRADOR', comprador.endereco)
             substituir_texto('NUM_DA_MATRICULA', imovel.numero_da_matricula)
             substituir_texto('CATEGORIA_IMOVEL', imovel.categoria)
