@@ -10,7 +10,9 @@ doc = Document("contrato_motive.docx")
 
 def main(): # Função principal que inicia o programa
     comprador = ''
+    comprador_2 = ''
     vendedor = ''
+    vendedor_2 = ''
     imovel = ''
     valores = ''
     tela_limpa()
@@ -122,8 +124,14 @@ def main(): # Função principal que inicia o programa
                                 break
                                                       
                             elif editar_vendedores == '2':
-                                vendedor_2.editar_dados()
-                                break
+                                if not vendedor_2:
+                                    print('\nVendedor 2 não cadastrado.\n')
+                                    input('Digite [ENTER] para voltar.')
+                                    break
+
+                                else:
+                                    vendedor_2.editar_dados()
+                                    break
 
                             else:
                                 print('Digite uma opção válida!\n')
@@ -146,8 +154,14 @@ def main(): # Função principal que inicia o programa
                                 break
                                                       
                             elif editar_compradores == '2':
-                                comprador_2.editar_dados()
-                                break
+                                if not comprador_2:
+                                    print('\nComprador 2 não cadastrado.\n')
+                                    input('Digite [ENTER] para voltar.')
+                                    break
+
+                                else:   
+                                    comprador_2.editar_dados()
+                                    break
 
                             else:
                                 print('Digite uma opção válida!\n')

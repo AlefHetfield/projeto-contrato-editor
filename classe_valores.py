@@ -14,7 +14,7 @@ class Valores:
         self.valor_do_imovel = input('Valor do imóvel: R$ ')    
         self.sinal = input('Valor do sinal. Caso não se aplique, deixe em branco: R$ ')
         self.fgts = input('Valor do FGTS. Caso não se aplique, deixe em branco: R$ ')
-        self.recursos_proprios = input('Valor de recursos próprios: R$ ')
+        self.recursos_proprios = input('Valor de recursos próprios. Caso não se aplique, deixe em branco: R$ ')
         self.financiamento = input('Valor do financiamento: R$ ')
 
     def __str__(self):

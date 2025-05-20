@@ -11,10 +11,31 @@ class Pessoa:
         self.nome = input(f'Digite o nome do {self.tipo}: ')
         self.cpf = input(f'Digite o CPF do {self.tipo}: ')
         self.rg = input(f'Digite o RG do {self.tipo}: ')
+        self.estado_civil = input(f'Digite o estado civil do {self.tipo}: ')
         self.endereco = input(f'Digite o Endereço Completo do {self.tipo}: ')
 
+    def coletar_dados_segundo_participante(self):
+        print(f'CADASTRO DO {self.tipo}\n'.upper())
+        self.nome = input(f'Digite o nome do {self.tipo}: ')
+        self.cpf = input(f'Digite o CPF do {self.tipo}: ')
+        self.rg = input(f'Digite o RG do {self.tipo}: ')
+
+        while True:
+            endereco_segundo_participante = input('O endereço é o mesmo do primeiro participante? [S/N]: ').strip().upper()
+            if endereco_segundo_participante == 'N':
+                self.endereco = input(f'Digite o Endereço Completo do {self.tipo}: ')
+                break
+
+            elif endereco_segundo_participante == 'S':
+                self.endereco == {self.endereco}
+                break
+
+            else:
+                print('Digite uma opção válida!\n')
+
+
     def __str__(self):
-        return f'{self.tipo.upper()}\nNome: {self.nome}\nCPF: {self.cpf}\nRG: {self.rg}\nEndereço: {self.endereco}\n'
+        return f'{self.tipo.upper()}\nNome: {self.nome}\nCPF: {self.cpf}\nRG: {self.rg}\nEstado Civil: {self.estado_civil}\nEndereço: {self.endereco}\n'
     
     def editar_dados(self):
         while True:
