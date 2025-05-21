@@ -214,32 +214,46 @@ def main(): # Função principal que inicia o programa
             input('\nDigite [ENTER] para voltar: ')
 
         elif opcao_escolhida == '3':
-            substituir_texto('NOME_VENDEDOR_1', vendedor.nome.upper())
-            substituir_texto('CPF_VENDEDOR_1', vendedor.cpf)
-            substituir_texto('RG_VENDEDOR_1', vendedor.rg)
-            substituir_texto('NOME_VENDEDOR_2', vendedor_2.nome.upper())
-            substituir_texto('CPF_VENDEDOR_2', vendedor_2.cpf)
-            substituir_texto('RG_VENDEDOR_2', vendedor_2.rg)
-            substituir_texto('ENDERECO_VENDEDOR', vendedor.endereco)
-            substituir_texto('NOME_COMPRADOR', comprador.nome.upper())
-            substituir_texto('CPF_COMPRADOR', comprador.cpf)
-            substituir_texto('RG_COMPRADOR', comprador.rg)
-            substituir_texto('NOME_COMPRADOR_2', comprador_2.nome.upper())
-            substituir_texto('CPF_COMPRADOR_2', comprador_2.cpf)
-            substituir_texto('RG_COMPRADOR_2', comprador_2.rg)
-            substituir_texto('ENDERECO_COMPRADOR', comprador.endereco)
-            substituir_texto('NUM_DA_MATRICULA', imovel.numero_da_matricula)
-            substituir_texto('CATEGORIA_IMOVEL', imovel.categoria)
-            substituir_texto('ENDERECO_IMOVEL', imovel.endereco_do_imovel)
-            substituir_texto('CARTORIO', imovel.cartorio)
-            substituir_texto('NOME_BANCO', valores.banco)
+            if vendedor_2 != '' and comprador_2 != '':
+                substituir_texto('PARAGRAFO_VENDEDOR', f'{vendedor.nome.upper()}, {vendedor.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor.rg}, inscrito(a) no CPF sob n°{vendedor.cpf} e {vendedor_2.nome.upper()}, {vendedor_2.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor_2.rg}, inscrito(a) no CPF sob n° {vendedor_2.cpf}, residente(s) e domiciliado(s) à {vendedor.endereco}.')
+                substituir_texto('PARAGRAFO_COMPRADOR', f'{comprador.nome.upper()}, {comprador.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador.rg}, inscrito(a) no CPF sob n°{comprador.cpf} e {comprador_2.nome.upper()}, {comprador_2.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador_2.rg}, inscrito(a) no CPF sob n° {comprador_2.cpf}, residente(s) e domiciliado(s) à {comprador.endereco}.')
+                substituir_texto('NOME_VENDEDOR', vendedor.nome)
+                substituir_texto('NOME_SEGUNDO_VENDEDOR', vendedor_2.nome)
+                substituir_texto('NOME_COMPRADOR', comprador.nome)                
+                substituir_texto('NOME_SEGUNDO_COMPRADOR', comprador_2.nome)
+
+            elif vendedor_2 == '' and comprador_2 == '':
+                substituir_texto('PARAGRAFO_VENDEDOR', f'{vendedor.nome.upper()}, {vendedor.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor.rg}, inscrito(a) no CPF sob n°{vendedor.cpf}, residente(s) e domiciliado(s) à {vendedor.endereco}.')
+                substituir_texto('PARAGRAFO_COMPRADOR', f'{comprador.nome.upper()}, {comprador.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador.rg}, inscrito(a) no CPF sob n°{comprador.cpf}, residente(s) e domiciliado(s) à {comprador.endereco}.')
+                substituir_texto('NOME_VENDEDOR', vendedor.nome)
+                substituir_texto('NOME_COMPRADOR', comprador.nome) 
+
+            elif vendedor_2 != '' and comprador_2 == '':
+                substituir_texto('PARAGRAFO_VENDEDOR', f'{vendedor.nome.upper()}, {vendedor.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor.rg}, inscrito(a) no CPF sob n°{vendedor.cpf} e {vendedor_2.nome.upper()}, {vendedor_2.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor_2.rg}, inscrito(a) no CPF sob n° {vendedor_2.cpf}, residente(s) e domiciliado(s) à {vendedor.endereco}.')
+                substituir_texto('PARAGRAFO_COMPRADOR', f'{comprador.nome.upper()}, {comprador.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador.rg}, inscrito(a) no CPF sob n°{comprador.cpf}, residente(s) e domiciliado(s) à {comprador.endereco}.')
+                substituir_texto('NOME_VENDEDOR', vendedor.nome)
+                substituir_texto('NOME_SEGUNDO_VENDEDOR', vendedor_2.nome)
+                substituir_texto('NOME_COMPRADOR', comprador.nome)
+
+            elif vendedor_2 == '' and comprador_2 != '':
+                substituir_texto('PARAGRAFO_VENDEDOR', f'{vendedor.nome.upper()}, {vendedor.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor.rg}, inscrito(a) no CPF sob n°{vendedor.cpf}, residente(s) e domiciliado(s) à {vendedor.endereco}.')
+                substituir_texto('PARAGRAFO_COMPRADOR', f'{comprador.nome.upper()}, {comprador.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador.rg}, inscrito(a) no CPF sob n°{comprador.cpf} e {comprador_2.nome.upper()}, {comprador_2.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador_2.rg}, inscrito(a) no CPF sob n° {comprador_2.cpf}, residente(s) e domiciliado(s) à {comprador.endereco}.')    
+                substituir_texto('NOME_VENDEDOR', vendedor.nome)
+                substituir_texto('NOME_COMPRADOR', comprador.nome)                
+                substituir_texto('NOME_SEGUNDO_COMPRADOR', comprador_2.nome)           
+
+            else:
+                print("Preencha os dados corretamente antes de salvar o arquivo.")
+
+            substituir_texto('PARAGRAFO_IMOVEL', f'Um(a) {imovel.categoria.lower()} localizado(a) na {imovel.endereco_do_imovel}, objeto da matrícula nº {imovel.numero_da_matricula}, do Oficial de Registro de Imóveis de {imovel.cartorio}, assim descrito e caracterizado, denominado “imóvel”.')
+
             substituir_texto('VALOR_DO_IMOVEL', valores.valor_do_imovel)
             substituir_texto('VALOR_SINAL', valores.sinal)
             substituir_texto('VALOR_FGTS', valores.fgts)
             substituir_texto('VALOR_RECURSOS', valores.recursos_proprios)
             substituir_texto('VALOR_FINANCIAMENTO', valores.financiamento)
-
-        
+            substituir_texto('NOME_BANCO', valores.banco)
+            
             nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
             doc.save(f'{nome_arquivo}.docx')
 
