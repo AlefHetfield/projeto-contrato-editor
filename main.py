@@ -1,6 +1,8 @@
 from docx import Document
 from docx2pdf import convert
 from num2words import num2words as extenso
+from datetime import datetime
+from babel.dates import format_date
 import os
 from classe_pessoa import Pessoa
 from classe_imovel import Imovel
@@ -253,6 +255,12 @@ def main(): # Função principal que inicia o programa
             substituir_texto('VALOR_RECURSOS', valores.recursos_proprios)
             substituir_texto('VALOR_FINANCIAMENTO', valores.financiamento)
             substituir_texto('NOME_BANCO', valores.banco)
+            
+            # Obtém a data atual
+            data_atual = datetime.now()
+            # Formata a data com o mês por extenso em português
+            data_formatada = format_date(data_atual, format='d \'de\' MMMM \'de\' y', locale='pt_BR')
+            substituir_texto('DATA_ATUAL', data_formatada)
             
             nome_arquivo = input('Digite o nome do arquivo que deseja salvar: ')
             doc.save(f'{nome_arquivo}.docx')
