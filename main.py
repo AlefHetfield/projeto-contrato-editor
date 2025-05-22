@@ -1,8 +1,10 @@
 from docx import Document
 from docx2pdf import convert
-from num2words import num2words as extenso
+from num2words import num2words
 from datetime import datetime
 from babel.dates import format_date
+from babel.numbers import format_currency
+
 import os
 from classe_pessoa import Pessoa
 from classe_imovel import Imovel
@@ -228,7 +230,9 @@ def main(): # Função principal que inicia o programa
                 substituir_texto('PARAGRAFO_VENDEDOR', f'{vendedor.nome.upper()}, {vendedor.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor.rg}, inscrito(a) no CPF sob n°{vendedor.cpf}, residente(s) e domiciliado(s) à {vendedor.endereco}.')
                 substituir_texto('PARAGRAFO_COMPRADOR', f'{comprador.nome.upper()}, {comprador.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador.rg}, inscrito(a) no CPF sob n°{comprador.cpf}, residente(s) e domiciliado(s) à {comprador.endereco}.')
                 substituir_texto('NOME_VENDEDOR', vendedor.nome)
-                substituir_texto('NOME_COMPRADOR', comprador.nome) 
+                substituir_texto('NOME_COMPRADOR', comprador.nome)
+                substituir_texto('NOME_SEGUNDO_VENDEDOR', " ")
+                substituir_texto('NOME_SEGUNDO_COMPRADOR', " ") 
 
             elif vendedor_2 != '' and comprador_2 == '':
                 substituir_texto('PARAGRAFO_VENDEDOR', f'{vendedor.nome.upper()}, {vendedor.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor.rg}, inscrito(a) no CPF sob n°{vendedor.cpf} e {vendedor_2.nome.upper()}, {vendedor_2.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor_2.rg}, inscrito(a) no CPF sob n° {vendedor_2.cpf}, residente(s) e domiciliado(s) à {vendedor.endereco}.')
@@ -236,19 +240,39 @@ def main(): # Função principal que inicia o programa
                 substituir_texto('NOME_VENDEDOR', vendedor.nome)
                 substituir_texto('NOME_SEGUNDO_VENDEDOR', vendedor_2.nome)
                 substituir_texto('NOME_COMPRADOR', comprador.nome)
+                substituir_texto('NOME_SEGUNDO_COMPRADOR', " ")
 
             elif vendedor_2 == '' and comprador_2 != '':
                 substituir_texto('PARAGRAFO_VENDEDOR', f'{vendedor.nome.upper()}, {vendedor.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {vendedor.rg}, inscrito(a) no CPF sob n°{vendedor.cpf}, residente(s) e domiciliado(s) à {vendedor.endereco}.')
                 substituir_texto('PARAGRAFO_COMPRADOR', f'{comprador.nome.upper()}, {comprador.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador.rg}, inscrito(a) no CPF sob n°{comprador.cpf} e {comprador_2.nome.upper()}, {comprador_2.estado_civil.lower()}, inscrito(a) na cédula de identidade RG n° {comprador_2.rg}, inscrito(a) no CPF sob n° {comprador_2.cpf}, residente(s) e domiciliado(s) à {comprador.endereco}.')    
                 substituir_texto('NOME_VENDEDOR', vendedor.nome)
                 substituir_texto('NOME_COMPRADOR', comprador.nome)                
-                substituir_texto('NOME_SEGUNDO_COMPRADOR', comprador_2.nome)           
+                substituir_texto('NOME_SEGUNDO_COMPRADOR', comprador_2.nome)
+                substituir_texto('NOME_SEGUNDO_VENDEDOR', " ")           
 
             else:
                 print("Preencha os dados corretamente antes de salvar o arquivo.")
 
             substituir_texto('PARAGRAFO_IMOVEL', f'Um(a) {imovel.categoria.lower()} localizado(a) na {imovel.endereco_do_imovel}, objeto da matrícula nº {imovel.numero_da_matricula}, do Oficial de Registro de Imóveis de {imovel.cartorio}, assim descrito e caracterizado, denominado “imóvel”.')
 
+            extenso_valor_do_imovel = num2words(valores.valor_do_imovel, lang='pt_BR', to='currency')
+            extenso_sinal = num2words(valores.sinal, lang='pt_BR', to='currency')
+            extenso_fgts = num2words(valores.fgts, lang='pt_BR', to='currency')
+            extenso_recursos_proprios = num2words(valores.recursos_proprios, lang='pt_BR', to='currency')
+            extenso_financiamento = num2words(valores.financiamento, lang='pt_BR', to='currency')
+
+            substituir_texto('EXTENSO_VALOR_DO_IMOVEL', extenso_valor_do_imovel)
+            substituir_texto('EXTENSO_SINAL', extenso_sinal)
+            substituir_texto('EXTENSO_FGTS', extenso_fgts)
+            substituir_texto('EXTENSO_RECURSOS', extenso_recursos_proprios)
+            substituir_texto('EXTENSO_FINANCIAMENTO', extenso_financiamento)
+
+            valores.valor_do_imovel = format_currency(valores.valor_do_imovel, 'BRL', locale='pt_BR')
+            valores.sinal = format_currency(valores.sinal, 'BRL', locale='pt_BR')
+            valores.fgts = format_currency(valores.fgts, 'BRL', locale='pt_BR')
+            valores.recursos_proprios = format_currency(valores.recursos_proprios, 'BRL', locale='pt_BR')
+            valores.financiamento = format_currency(valores.financiamento, 'BRL', locale='pt_BR')
+        
             substituir_texto('VALOR_DO_IMOVEL', valores.valor_do_imovel)
             substituir_texto('VALOR_SINAL', valores.sinal)
             substituir_texto('VALOR_FGTS', valores.fgts)

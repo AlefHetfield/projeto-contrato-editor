@@ -11,11 +11,11 @@ class Valores:
     def coletar_dados(self):
         print('CADASTRO DOS DADOS DA NEGOCIAÇÃO\n')
         self.banco = input('Banco a financiar: ')
-        self.valor_do_imovel = input('Valor do imóvel: R$ ')    
-        self.sinal = input('Valor do sinal. Caso não se aplique, deixe em branco: R$ ')
-        self.fgts = input('Valor do FGTS. Caso não se aplique, deixe em branco: R$ ')
-        self.recursos_proprios = input('Valor de recursos próprios. Caso não se aplique, deixe em branco: R$ ')
-        self.financiamento = input('Valor do financiamento: R$ ')
+        self.valor_do_imovel = int(input('Valor do imóvel: R$ '))    
+        self.sinal = int(input('Valor do sinal. Caso não se aplique, deixe em branco: R$ '))
+        self.fgts = int(input('Valor do FGTS. Caso não se aplique, deixe em branco: R$ '))
+        self.recursos_proprios = int(input('Valor de recursos próprios. Caso não se aplique, deixe em branco: R$ '))
+        self.financiamento = int(input('Valor do financiamento: R$ '))
 
     def __str__(self):
         return f'{self.tipo.upper()}\nBanco: {self.banco}\nValor do Imóvel: R$ {self.valor_do_imovel}\nSinal: R$ {self.sinal}\nFGTS: R$ {self.fgts}\nRecursos Próprios: R$ {self.recursos_proprios}\nFinanciamento: R$ {self.financiamento}'
@@ -37,27 +37,27 @@ class Valores:
                 input('Digite [ENTER] para voltar.')
                 break            
             elif opcao == '2':
-                self.valor_do_imovel = input('Digite o novo valor: R$ ')
+                self.valor_do_imovel = input(int('Digite o novo valor: R$ '))
                 print(f'Valor do Imóvel alterado para: R$ {self.valor_do_imovel}')
                 input('Digite [ENTER] para voltar.')
                 break
             elif opcao == '3':
-                self.sinal = input('Digite o novo valor: R$ ')
+                self.sinal = input(int('Digite o novo valor: R$ '))
                 print(f'Valor do Sinal alterado para: R$ {self.sinal}')
                 input('Digite [ENTER] para voltar.')
                 break
             elif opcao == '4':
-                self.fgts = input('Digite o novo valor: R$ ')
+                self.fgts = input(int('Digite o novo valor: R$ '))
                 print(f'Valor de FGTS alterado para: R$ {self.fgts}')
                 input('Digite [ENTER] para voltar.')
                 break
             elif opcao == '5':
-                self.recursos_proprios = input('Digite o novo valor: R$ ')
+                self.recursos_proprios = input(int('Digite o novo valor: R$ '))
                 print(f'Valor de Recursos Próprios alterado para: R$ {self.recursos_proprios}')
                 input('Digite [ENTER] para voltar.')
                 break
             elif opcao == '6':
-                self.financiamento = input('Digite o novo valor: R$ ')
+                self.financiamento = input(int('Digite o novo valor: R$ '))
                 print(f'Valor de Financiamento alterado para: R$ {self.financiamento}')
                 input('Digite [ENTER] para voltar.')
                 break
