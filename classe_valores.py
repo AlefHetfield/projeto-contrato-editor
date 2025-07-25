@@ -11,11 +11,36 @@ class Valores:
     def coletar_dados(self):
         print('CADASTRO DOS DADOS DA NEGOCIAÇÃO\n')
         self.banco = input('Banco a financiar: ')
-        self.valor_do_imovel = int(input('Valor do imóvel: R$ '))    
-        self.sinal = int(input('Valor do sinal. Caso não se aplique, deixe em branco: R$ '))
-        self.fgts = int(input('Valor do FGTS. Caso não se aplique, deixe em branco: R$ '))
-        self.recursos_proprios = int(input('Valor de recursos próprios. Caso não se aplique, deixe em branco: R$ '))
-        self.financiamento = int(input('Valor do financiamento: R$ '))
+        while True:
+            try:
+                self.valor_do_imovel = int(input('Valor do imóvel (sem ponto ou vírgula): R$ '))
+                break
+            except ValueError:
+                print('Por favor, digite apenas números inteiros para o valor do imóvel.')
+        while True:
+            try:
+                self.sinal = int(input('Valor do sinal (sem ponto ou vírgula). Caso não se aplique, digite 0: R$ '))
+                break
+            except ValueError:
+                print('Por favor, digite apenas números inteiros para o sinal.')
+        while True:
+            try:
+                self.fgts = int(input('Valor do FGTS (sem ponto ou vírgula). Caso não se aplique, digite 0: R$ '))
+                break
+            except ValueError:
+                print('Por favor, digite apenas números inteiros para o FGTS.')
+        while True:
+            try:
+                self.recursos_proprios = int(input('Valor de recursos próprios (sem ponto ou vírgula). Caso não se aplique, digite 0: R$ '))
+                break
+            except ValueError:
+                print('Por favor, digite apenas números inteiros para recursos próprios.')
+        while True:
+            try:
+                self.financiamento = int(input('Valor do financiamento: R$ '))
+                break
+            except ValueError:
+                print('Por favor, digite apenas números inteiros para o financiamento.')
 
     def __str__(self):
         return f'{self.tipo.upper()}\nBanco: {self.banco}\nValor do Imóvel: R$ {self.valor_do_imovel}\nSinal: R$ {self.sinal}\nFGTS: R$ {self.fgts}\nRecursos Próprios: R$ {self.recursos_proprios}\nFinanciamento: R$ {self.financiamento}'
